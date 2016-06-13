@@ -5,13 +5,14 @@
 * [Twitter](https://twitter.com)  
 * [Instagram](https://www.instagram.com)  
 * [Flickr](https://www.flickr.com)  
+* [Tumblr](https://www.tumblr.com)
 * [Vimeo](https://vimeo.com)  
-* [Apple](https://www.apple.com)
+* [Apple](https://www.apple.com)  
 * [Microsoft](https://www.microsoft.com)
 
 ***
 * [Baidu](https://www.baidu.com)  
-* Tencent  
+* [Tencent](http://www.qq.com)  
 * [Weibo](http://weibo.com)  
 * [Bilibili](http://www.bilibili.com)
 * [Youku](http://youku.com)
