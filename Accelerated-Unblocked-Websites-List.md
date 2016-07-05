@@ -32,6 +32,7 @@
 * [Apple](https://www.apple.com)  
  iOS/MacOS 更新、 APP 下载加速  
 * [Microsoft](https://www.microsoft.com)   
+ 可访问[OneDrive](https://onedrive.live.com)<sup>[1](#footnote1)</sup>  
  Windows更新、 APP 下载加速  
 
 ***
