@@ -1,8 +1,8 @@
 ### Included but not limited to the following:
 * [Google](https://www.google.com/ncr)  
- 可访问<sup>[1](#footnote1)</sup> <sup>[3](#footnote3)</sup>
+ 可访问<sup>[1](#footnote1) [3](#footnote3)</sup>
 * [YouTube](https://www.youtube.com)  
- 可访问<sup>[1](#footnote1)</sup> <sup>[3](#footnote3)</sup>  
+ 可访问<sup>[1](#footnote1) [3](#footnote3)</sup>  
  视频加速<sup>[2](#footnote2)</sup>
 * [Facebook](https://www.facebook.com)  
  可访问<sup>[1](#footnote1)</sup>
@@ -13,13 +13,13 @@
  可访问  
  图片、视频等静态文件加速<sup>[2](#footnote2)</sup>
 * [Instagram](https://www.instagram.com)  
- 可访问  
+ 可访问<sup>[1](#footnote1)/[2](#footnote2)</sup>  
  图片、视频等静态文件加速<sup>[2](#footnote2)</sup>
 * [Flickr](https://www.flickr.com)  
- 可访问  
+ 可访问<sup>[1](#footnote1)/[2](#footnote2)</sup>  
  图片、视频等静态文件加速<sup>[2](#footnote2)</sup>
 * [Tumblr](https://www.tumblr.com)  
- 可访问主站  
+ 可访问主站<sup>[1](#footnote1)/[2](#footnote2)</sup>  
  可访问用户页<sup>[2](#footnote2)</sup>  
  图片、视频等静态文件加速<sup>[2](#footnote2)</sup>
 * [Vimeo](https://vimeo.com)  
