@@ -1,26 +1,34 @@
 ### Included but not limited to the following:
 * [Google](https://www.google.com/ncr)  
- 可访问，部分功能由于地域限制无法使用
+ 可访问<sup>[1](#footnote1)</sup> <sup>[3](#footnote3)</sup>
 * [YouTube](https://www.youtube.com)  
- 可访问，部分功能由于地域限制无法使用  
- 可流畅观看2160p视频
+ 可访问<sup>[1](#footnote1)</sup> <sup>[3](#footnote3)</sup>  
+ 视频加速<sup>[2](#footnote2)</sup>
 * [Facebook](https://www.facebook.com)  
- 可访问
+ 可访问<sup>[1](#footnote1)</sup>
 * [Twitter](https://twitter.com)  
- 可访问
+ 可访问<sup>[1](#footnote1)</sup>  
+ 图片、视频等静态文件加速<sup>[2](#footnote2)</sup>  
+* [Vine](https://vine.co)  
+ 可访问  
+ 图片、视频等静态文件加速<sup>[2](#footnote2)</sup>
 * [Instagram](https://www.instagram.com)  
- 可访问
+ 可访问  
+ 图片、视频等静态文件加速<sup>[2](#footnote2)</sup>
 * [Flickr](https://www.flickr.com)  
- 可访问
+ 可访问  
+ 图片、视频等静态文件加速<sup>[2](#footnote2)</sup>
 * [Tumblr](https://www.tumblr.com)  
  可访问主站  
- 可访问用户页
+ 可访问用户页<sup>[2](#footnote2)</sup>  
+ 图片、视频等静态文件加速<sup>[2](#footnote2)</sup>
 * [Vimeo](https://vimeo.com)  
- 可访问
+ 可访问<sup>[1](#footnote1)</sup>  
+ 视频加速<sup>[2](#footnote2)</sup>
 * [Wikipedia](https://zh.wikipedia.org)  
- 可访问中文版
+ 可访问中文版<sup>[1](#footnote1)</sup>
 * [GitHub](https://github.com)  
- 图片、 GitHub Pages 等静态文件加速
+ 图片、 GitHub Pages 等静态文件加速<sup>[2](#footnote2)</sup>
 * [Apple](https://www.apple.com)  
  iOS/MacOS 更新、 APP 下载加速  
 * [Microsoft](https://www.microsoft.com)   
@@ -28,7 +36,7 @@
 
 ***
 * [百度](https://www.baidu.com)  
- 贴吧图片加速  
+ 贴吧等图片加速  
  手机助手 APP 下载加速  
  百度云网盘下载、上传加速
 * [腾讯](http://www.qq.com)  
@@ -45,4 +53,8 @@
 * [淘宝](https://www.taobao.com)  
  图片等静态文件加速
 * [京东](https://www.jd.com)  
- 图片等静态文件加速
+ 图片等静态文件加速  
+
+<a name="footnote1">1</a>: 需要强制 HTTPS  
+<a name="footnote2">2</a>: 需要 IPv6 环境  
+<a name="footnote3">3</a>: 部分功能由于地域限制无法使用
