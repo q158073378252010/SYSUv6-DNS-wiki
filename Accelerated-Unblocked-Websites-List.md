@@ -1,15 +1,15 @@
 ### Included but not limited to the following:
 * [Google](https://www.google.com/ncr)  
- 可访问<sup>[1](#footnote1) [3](#footnote3)</sup>
+ 可访问<sup>[1](#footnote1) [2](#footnote2) [3](#footnote3)</sup>
 * [YouTube](https://www.youtube.com)  
- 可访问<sup>[1](#footnote1) [3](#footnote3)</sup>  
+ 可访问<sup>[1](#footnote1) [2](#footnote2) [3](#footnote3)</sup>  
  视频加速<sup>[2](#footnote2)</sup>
 * [Facebook](https://www.facebook.com)  
- 可访问<sup>[1](#footnote1)</sup>
+ 可访问<sup>[1](#footnote1) [2](#footnote2)</sup> 
 * [Twitter](https://twitter.com)  
  可访问<sup>[1](#footnote1)</sup>  
  图片、视频等静态文件加速<sup>[2](#footnote2)</sup>  
-* [Vine](https://vine.co)  
+* [Vine](https://vine.co)  **EOL**
  可访问  
  图片、视频等静态文件加速<sup>[2](#footnote2)</sup>
 * [Instagram](https://www.instagram.com)  
@@ -32,8 +32,8 @@
 * [Apple](https://www.apple.com)  
  iOS/MacOS 更新、 APP 下载加速  
 * [Microsoft](https://www.microsoft.com)   
- 可访问[OneDrive](https://onedrive.live.com)<sup>[1](#footnote1)</sup>  
- Windows更新、 APP 下载加速  
+ 可访问 [OneDrive](https://onedrive.live.com)<sup>[1](#footnote1)</sup>  
+ Windows 更新、 APP 下载加速  
 
 ***
 * [百度](https://www.baidu.com)  
@@ -47,7 +47,7 @@
  英雄联盟等腾讯游戏下载、更新加速
 * [新浪微博](http://weibo.com)  
  新浪图片、视频等静态文件加速
-* [Bilibili](http://www.bilibili.com)  
+* [Bilibili](https://www.bilibili.com)  
  视频加速
 * [优酷土豆](http://youku.com)  
  视频加速
