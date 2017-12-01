@@ -12,7 +12,7 @@
 
 * OpenWRT/LEDE 类固件
 
-     OpenWRT 可使用 `kmod-ipt-nat6` 内核模块实现 NAT66。
+     OpenWRT/LEDE 可使用 `kmod-ipt-nat6` 内核模块实现 NAT66。
 
      进入设置页面→网络→接口，在“IPv6 ULA 前缀”中填入内网 IPv6 地址段，如 `2001:db8:1234:5678::/64`，注意不能是保留地址或与某些网站的 IPv6 地址冲突。点击“保存&应用”；
 
@@ -21,6 +21,10 @@
      进入系统→软件包，先刷新列表，然后安装 `kmod-ipt-nat6`（填入“下载并安装软件包”内点确认）；
 
      进入网络→防火墙→自定义规则，添加一行 `ip6tables -t nat -I POSTROUTING -s 你在步骤 1 中填入的地址段 -j MASQUERADE` ，点击“重启防火墙”。
+
+* 华硕 Merlin/Padavan 固件：
+
+     这类固件一般没有集成这类功能，只能自行编译集成 [NAPT66](https://github.com/mzweilin/napt66) 模块的固件。Padavan 可参考 http://www.jianshu.com/p/3a9ec169336e
 
 ## 2. IPv6 中继
 
@@ -61,7 +65,7 @@ config dhcp 'wan6'
 
      在设置为静态地址之前，先用 `ifconfig`，`ip -6 route` 等命令查看 WAN 口的 IPv6 地址和 IPv6 网关。IPv6 网关为 `fe80::` 开头的链路地址。
 
-     设置 WAN 口静态地址：
+     设置 WAN/LAN 口静态地址：
      * OpenWRT/LEDE 类系统：修改 WAN6 的设置，切换协议为静态地址并填入 IPv6 /128 地址和 IPv6 网关，在“IPv6 ULA 前缀”中填入 /64 地址段，在 LAN “IPv6 设置” 中把“路由器广告服务”（Router Advertisement）设置为“服务器模式”， DHCPv6 和 NDP 设置为禁用。
      * 极路由：修改 `/etc/config/network` ，在 `config interface 'wan'` 下加入 `option ip6addr 'WAN 口地址/128'` 和 `option ip6gw '网关地址'` 两行，保存后执行 `ifup wan` 重启 WAN 接口。使用 radvd 为 LAN 通告 /64 地址段。
      * 华硕 Merlin/Padavan 固件：直接在 IPv6 中设置为静态地址，填入 IPv6 地址（LAN 侧前缀长度 64， WAN 侧 128）和 IPv6 网关，打开 Router Advertisement。
@@ -69,8 +73,8 @@ config dhcp 'wan6'
      设置完后先在路由器上测试 IPv6 连通性，再进入下一步。
 
      安装 ndppd：
-     * OpenWRT/LEDE 类系统：直接用 系统→软件包 安装 ndppd。如果无法安装，可能需要手动从 OpenWRT/LEDE 官网下载 ipk 到路由器上并 `opkg install 文件名` 安装之。
-     * 极路由：同上，可使用 OpenWRT 15.05 的 RAMIPS(MTK CPU) 软件源，但可能需要修改 `/etc/opkg.conf` ，见 https://sourceforge.net/p/openwrt-dist/wiki/Home/?version=14 。
+     * OpenWRT/LEDE 类固件：直接用 系统→软件包 安装 ndppd。如果无法安装，可能需要手动从 OpenWRT/LEDE 官网下载 ipk 到路由器上并 `opkg install 文件名` 安装之。
+     * 极路由：同上，可使用 OpenWRT <s>15.05</s> 14.07 的 RAMIPS(MTK CPU) 软件源，但可能需要修改 `/etc/opkg.conf` ，见 https://sourceforge.net/p/openwrt-dist/wiki/Home/?version=14 。
      * 华硕 Merlin/Padavan 固件：安装 [Entware-ng](https://github.com/Entware-ng/Entware-ng) 后可直接使用 opkg 安装。无法安装 Entware 的请自行编译或 Google 已经编译好的文件。
 
      编辑 ndppd.conf，OpenWRT/LEDE/极路由的路径为 `/etc/ndppd.conf` ，其他固件须自行指定路径：
@@ -106,5 +110,5 @@ proxy WAN 口名称 {
 
      **注意：此方法存在以下几个缺点，但基本不影响使用：**
      * 将原本在 WAN 侧的 /64 地址段强行划分给 LAN，会导致处于相同 /64 段的 WAN 和 LAN 设备无法使用 IPv6 直接互通。应对方法：使用 IPv4，或再开一个 ndppd 进程把 LAN 的 NDP 代理到 WAN（新建一个 conf，交换 WAN 和 LAN 的名称，将 autowire 设置为 yes）
-     * 有极小的概率 （2<sup>-64</sup>） 会使分别处于 WAN 和 LAN 侧的两个设备 SLAAC 到同一个地址，导致 IP 冲突上不了网。应对方法：重启设备或关闭 SLAAC 隐私扩展。
+     * 有极小的概率 （n*2<sup>-64</sup>，n 为已获取 IPv6 地址的设备） 会使分别处于 WAN 和 LAN 侧的两个设备 SLAAC 到同一个地址，导致 IP 冲突上不了网。应对方法：重启设备或关闭 SLAAC 隐私扩展。
      * LAN 设备在两个处于同一个 /64 段，且都使用了 IPv6 中继方案的路由器下漫游时，其 IPv6 地址可能不会改变，这将导致因网关缓存了该地址的上一个 NDP 信息而无法把 IPv6 包转发到正确的路由器。应对方法：重启设备。
