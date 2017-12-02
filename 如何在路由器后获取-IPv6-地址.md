@@ -3,7 +3,7 @@
 可用的有以下方案：
 ## 1. NAT66
 
-与目前 IPv4 的情况类似，路由器 WAN 口 获得一个 IPv6 地址，LAN 口使用内网 IPv6 地址，LAN 设备共用 WAN 的 IPv6 地址上网。
+与目前 IPv4 的情况类似，路由器 WAN 口获得一个 IPv6 地址，LAN 口使用内网 IPv6 地址，LAN 设备共用 WAN 的 IPv6 地址上网。
 * 极路由
 
      极路由已自带 IPv6 NAT 功能，由 [NAPT66](https://github.com/mzweilin/napt66) 实现。
@@ -16,7 +16,7 @@
 
      进入设置页面→网络→接口，在“IPv6 ULA 前缀”中填入内网 IPv6 地址段，如 `2001:db8:1234:5678::/64`，注意不能是保留地址或与某些网站的 IPv6 地址冲突。点击“保存&应用”；
 
-     点击 LAN 的“编辑”，在 “IPv6 设置” 中把“路由器广告服务”（Router Advertisement）设置为“服务器模式”， DHCPv6 和 NDP 设置为禁用。
+     点击 LAN 的“编辑”，在 “IPv6 设置” 中把“路由器广告服务”（Router Advertisement）设置为“服务器模式”， DHCPv6 和 NDP 设置为禁用，“总是广播默认路由”选项打勾。
 
      进入系统→软件包，先刷新列表，然后安装 `kmod-ipt-nat6`（填入“下载并安装软件包”内点确认）；
 
@@ -66,7 +66,7 @@ config dhcp 'wan6'
      在设置为静态地址之前，先用 `ifconfig`，`ip -6 route` 等命令查看 WAN 口的 IPv6 地址和 IPv6 网关。IPv6 网关为 `fe80::` 开头的链路地址。
 
      设置 WAN/LAN 口静态地址：
-     * OpenWRT/LEDE 类系统：修改 WAN6 的设置，切换协议为静态地址并填入 IPv6 /128 地址和 IPv6 网关，在“IPv6 ULA 前缀”中填入 /64 地址段，在 LAN “IPv6 设置” 中把“路由器广告服务”（Router Advertisement）设置为“服务器模式”， DHCPv6 和 NDP 设置为禁用。
+     * OpenWRT/LEDE 类系统：修改 WAN6 的设置，切换协议为静态地址并填入 IPv6 /128 地址和 IPv6 网关，在“IPv6 ULA 前缀”中填入 /64 地址段，在 LAN “IPv6 设置” 中把“路由器广告服务”（Router Advertisement）设置为“服务器模式”， DHCPv6 和 NDP 设置为禁用，“总是广播默认路由”选项打勾。
      * 极路由：修改 `/etc/config/network` ，在 `config interface 'wan'` 下加入 `option ip6addr 'WAN 口地址/128'` 和 `option ip6gw '网关地址'` 两行，保存后执行 `ifup wan` 重启 WAN 接口。使用 radvd 为 LAN 通告 /64 地址段。
      * 华硕 Merlin/Padavan 固件：直接在 IPv6 中设置为静态地址，填入 IPv6 地址（LAN 侧前缀长度 64， WAN 侧 128）和 IPv6 网关，打开 Router Advertisement。
 
