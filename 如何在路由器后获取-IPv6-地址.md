@@ -88,7 +88,7 @@ proxy WAN 口名称 {
    autowire no
    keepalive yes
    retries 3
-   promiscuous yes
+   promiscuous no
    ttl 30000
    rule 2000::/3 {
       iface LAN 口名称
