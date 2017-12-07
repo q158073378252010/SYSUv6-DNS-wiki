@@ -69,7 +69,7 @@ config dhcp 'wan6'
      * OpenWRT/LEDE 类系统：修改 WAN6 的设置，切换协议为静态地址并填入 IPv6 /128 地址和 IPv6 网关，在“IPv6 ULA 前缀”中填入 /64 地址段，在 LAN “IPv6 设置” 中把“路由器广告服务”（Router Advertisement）设置为“服务器模式”， DHCPv6 和 NDP 设置为禁用，“总是广播默认路由”选项打勾。
      * 极路由：修改 `/etc/config/network` ，在 `config interface 'wan'` 下加入 `option ip6addr 'WAN 口地址/128'` 和 `option ip6gw '网关地址'` 两行，保存后执行 `ifup wan` 重启 WAN 接口。使用 radvd 为 LAN 通告 /64 地址段。
      * 华硕 Merlin/Padavan 固件：直接在 IPv6 中设置为静态地址，填入 IPv6 地址（LAN 侧前缀长度 64， WAN 侧 128）和 IPv6 网关，打开 Router Advertisement。
-
+          * Padavan 固件目前存在 IPv6 网关设置无效的 bug，可以用 `ip -6 route add default via 网关地址 dev WAN口名称` 的方法手动设置，可加入 WAN 口启动时脚本中。
      设置完后先在路由器上测试 IPv6 连通性，再进入下一步。
 
      安装 ndppd：
@@ -126,7 +126,7 @@ proxy WAN 口名称 {
 
 * 其他
 
-     **请先关闭路由器的 IPv6 功能，否则会使其他人上不了网**
+     **请先关闭路由器的 IPv6 功能，否则会使其他人上不了网！OpenWRT/LEDE 除了删除 WAN6 接口外，还须清除 ULA 前缀，并在 LAN 的 IPv6 设置中禁用 RA、DHCPv6 和 NDP**
 
      将以下命令添加到自定义防火墙规则中：
 ```
