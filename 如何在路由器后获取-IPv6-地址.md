@@ -141,7 +141,10 @@ brctl addif LAN口名称 WAN口名称
 ```
 echo 0 > /proc/sys/net/ipv6/conf/LAN口名称/disable_ipv6
 echo 2 > /proc/sys/net/ipv6/conf/LAN口名称/accept_ra
-echo 1 > /proc/sys/net/ipv6/conf/LAN口名称/accept_ra_from_local
+ip6tables -F
+ip6tables -X
+ip6tables -P INPUT ACCEPT
+ip6tables -P OUTPUT ACCEPT
 ```
 
 &emsp;&emsp; 
