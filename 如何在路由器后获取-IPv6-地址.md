@@ -58,7 +58,7 @@ config dhcp 'wan6'
 
 
 &emsp;&emsp;保存后重启 odhcpd （命令行下 `/etc/init.d/odhcpd restart` ，或设置页面的系统→启动项，点 odhcpd 旁边的重启）。<br>
-&emsp;&emsp;内网设备将会获得公网地址。<br>&emsp;&emsp;**注意：odhcpd 似乎也不是特别稳定，在 LAN 下长时间 ping 外网 IPv6 地址可以缓解**
+&emsp;&emsp;内网设备将会获得公网地址。<br>&emsp;&emsp;**注意：odhcpd 1.5 及以下版本似乎不是特别稳定，请自行更新，在 LAN 下长时间 ping 外网 IPv6 地址也可以缓解**
 * Linux 通用方法
 
      将 WAN 口设置为静态 IPv6 地址，前缀长度 /128 ，然后把原先在 WAN 侧通告的 /64 地址段“强行”划分给 LAN，并使用 [ndppd](https://github.com/DanielAdolfsson/ndppd) 在 WAN 和 LAN 间代理 NDP，内网设备将会获得公网地址，且不存在掉线问题。
